@@ -96,3 +96,4 @@ df = master.merge(legal, on="document_id", how="left").merge(
     parties, on="document_id", how="left"
 )
 df = df.sort_values("document_id").reset_index(drop=True)
+df.document_amt = df.document_amt.str.split(".").str[0].astype(int)
